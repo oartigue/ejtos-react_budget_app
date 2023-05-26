@@ -4,7 +4,7 @@ import { IoAddCircle, IoRemoveCircle } from "react-icons/io5"
 import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch({
@@ -41,7 +41,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
         <td>{props.name}</td>
-        <td>£{props.cost}</td>
+        <td>{currency}{props.cost}</td>
         <td><IoAddCircle size='2.2em' color="green" onClick={event=> increaseAllocation(props.name)}>+</IoAddCircle></td>
         <td><IoRemoveCircle size='2.2em' color="red" onClick={event=> decreaseAllocation(props.name)}>+</IoRemoveCircle></td>
         <td><FaTimesCircle size='1.5em' onClick={handleDeleteExpense}></FaTimesCircle></td>
